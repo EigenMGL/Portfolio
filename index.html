@@ -5,6 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
     <title>Portfolio</title>
+    <style>
+        /* Animation de retournement des cartes */
+        .carte {
+            cursor: pointer;
+            perspective: 1000px;
+            position: relative;
+        }
+
+        .carte-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .carte.flipped .carte-inner {
+            transform: rotateY(180deg);
+        }
+
+        .carte-front, .carte-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: inherit;
+        }
+
+        .carte-front {
+            background: linear-gradient(to bottom, #2b2b2b, #2b2b2b);
+            border: 2px solid #b9b9b9;
+            font-weight: bold;
+        }
+
+        .carte-back {
+            background: #1a1a1a;
+            border: 2px solid #b9b9b9;
+            transform: rotateY(180deg);
+            overflow: hidden;
+        }
+
+        .carte-back a {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        .carte-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .carte-back a:hover img {
+            transform: scale(1.05);
+        }
+    </style>
 </head>
 <body>
     <!-- Bar -->
@@ -23,7 +84,7 @@
     <!-- User section -->
     <section class="user-section">
         <div class="logo"></div>
-        <div class="username">Ė̶̡͍͍̪̞͈̥̓͋͐I̴̡̥̭̯̓G̶͙̭̯͓̓͑̀̀͐͌̀͠͝Ȅ̵̬͉̟͍̗̮͓̈́̅͝N̴͔͖͇̐̄͑́̒̽͛</div>
+        <div class="username">Ė̶̡͍͍̪̞͈̥̓͋͐I̴̡̥̭̯̓G̶͙̭̯͓̓͑̀̀͐͌̀͠͝Ȅ̵̬͉̟͍̗̮͓̈́̅͝N̴͔͖͇̐̄͑́̒̽͛</div>
     </section>
 
     <!-- bas2page -->
@@ -35,10 +96,46 @@
 
         <!-- Cartes -->
         <div class="carte-box">
-            <div class="carte">Audio-visuel</div>
-            <div class="carte">3D</div>
-            <div class="carte">Jeu vidéo</div>
-            <div class="carte">Codage</div>
+            <div class="carte" onclick="this.classList.toggle('flipped')">
+                <div class="carte-inner">
+                    <div class="carte-front">Audio-visuel</div>
+                    <div class="carte-back">
+                        <a href="https://youtu.be/kUa_a0BB9mc" target="_blank" onclick="event.stopPropagation()">
+                            <img src="image/audiovisuel.png" alt="Audio-visuel">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="carte" onclick="this.classList.toggle('flipped')">
+                <div class="carte-inner">
+                    <div class="carte-front">3D</div>
+                    <div class="carte-back">
+                        <a href="https://youtu.be/-jm-Pm0O8fM" target="_blank" onclick="event.stopPropagation()">
+                            <img src="image/3d.png" alt="3D">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="carte" onclick="this.classList.toggle('flipped')">
+                <div class="carte-inner">
+                    <div class="carte-front">Jeu vidéo</div>
+                    <div class="carte-back">
+                        <a>
+                            <img src="image/jeuvideo.png" alt="Jeu vidéo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="carte" onclick="this.classList.toggle('flipped')">
+                <div class="carte-inner">
+                    <div class="carte-front">Codage</div>
+                    <div class="carte-back">
+                        <a href="file:///C:/Users/antoi/Desktop/cours/code/porfolio/code/index.html" target="_blank" onclick="event.stopPropagation()">
+                            <img src="image/codage.png" alt="Codage">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Musique -->
@@ -76,5 +173,4 @@
                 
     </main>
 </body>
-
 </html>
